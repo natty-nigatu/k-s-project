@@ -1,4 +1,4 @@
-import { Form, Input, Modal } from "antd";
+import { Button, Form, Input, Modal } from "antd";
 import React from "react";
 
 function EditStructure({ isModalOpen, setIsModalOpen, structure, updateStructure }) {
@@ -29,9 +29,9 @@ function EditStructure({ isModalOpen, setIsModalOpen, structure, updateStructure
         <Modal
             title="Edit Structure"
             open={isModalOpen}
-            okText={"Update Structure"}
             onOk={handleOk}
             onCancel={handleCancel}
+            footer={null}
         >
             <Form
                 form={form}
@@ -57,6 +57,12 @@ function EditStructure({ isModalOpen, setIsModalOpen, structure, updateStructure
                     <Input />
                 </Form.Item>
             </Form>
+            <div className="flex justify-end gap-3">
+                <Button onClick={handleCancel}>Cancel</Button>
+                <Button onClick={handleOk} type="primary" className="bg-sky-600">
+                    Update Structure
+                </Button>
+            </div>
         </Modal>
     );
 }
